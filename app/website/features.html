@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Why Terraform + S3 + CloudFront?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;font-family:Poppins,system-ui,Arial;background:linear-gradient(180deg,#f7f9fc,#eef6f9);color:#072032;display:flex;align-items:center;justify-content:center;padding:3rem}
+    .wrap{max-width:900px;background:white;border-radius:12px;padding:2.1rem;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+    h1{margin:0 0 0.5rem;font-size:1.6rem}
+    p.lead{margin:0 0 1rem;color:#475569}
+    ul{color:#334155}
+    li{margin:0.5rem 0}
+    .cta{display:inline-block;margin-top:1rem;padding:0.6rem 0.9rem;background:linear-gradient(90deg,#06b6d4,#60a5fa);color:white;border-radius:10px;text-decoration:none;font-weight:700}
+    .back{display:inline-block;margin-left:0.8rem;padding:0.45rem 0.7rem;background:#f1f5f9;color:#0b1220;border-radius:8px;text-decoration:none}
+    code{background:#0b1220;color:#f8fafc;padding:0.12rem 0.4rem;border-radius:6px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Why use Terraform + S3 + CloudFront?</h1>
+    <p class="lead">This page highlights the benefits of automating a static website deployment using Terraform, Amazon S3, and CloudFront.</p>
+
+    <h3>Terraform (Infrastructure as Code)</h3>
+    <ul>
+      <li><strong>Repeatable:</strong> Declare infrastructure once and recreate consistently across environments.</li>
+      <li><strong>Versioned:</strong> Store changes in Git to review history and roll back if needed.</li>
+      <li><strong>Idempotent:</strong> Applying the same configuration produces the same result.</li>
+      <li><strong>Automatable:</strong> Integrates with CI/CD to provision and publish automatically.</li>
+    </ul>
+
+    <h3>Amazon S3 (Static Site Hosting)</h3>
+    <ul>
+      <li><strong>Durable & Scalable:</strong> High durability and built for serving large numbers of objects.</li>
+      <li><strong>Cost-effective:</strong> Pay for storage and requests, cheap for static assets.</li>
+      <li><strong>Simple:</strong> Store files like `index.html` and `features.html` and serve them via HTTP.</li>
+    </ul>
+
+    <h3>CloudFront (Global Delivery)</h3>
+    <ul>
+      <li><strong>Fast:</strong> Edge caching reduces latency for users worldwide.</li>
+      <li><strong>Secure:</strong> TLS termination and integrated access controls (OAC/OAI) to protect S3 buckets.</li>
+      <li><strong>Reliable:</strong> Built-in redundancy and regional failover.</li>
+    </ul>
+
+    <p>Putting them together: Terraform creates the S3 bucket and CloudFront distribution, then uploads your static files. CloudFront serves those files globally and caches them for performance.</p>
+
+    <a class="cta" href="index.html">Back to Live Preview</a>
+    <a class="back" href="index.html">Index</a>
+  </div>
+</body>
+</html>

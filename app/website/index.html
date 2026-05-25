@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project-1 S3 Static Site — Test Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#0f172a; /* dark navy */
+      --bg2:#0ea5a4; /* teal */
+      --card:#ffffff;
+      --muted:#94a3b8;
+    }
+    html,body{height:100%;}
+    body {
+      margin:0; font-family: Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg,var(--bg1) 0%, #0b1220 40%, rgba(14,165,164,0.12) 100%);
+      color: #0b1220; display:flex; align-items:center; justify-content:center; padding:2rem;
+    }
+    .stage{max-width:980px; width:100%; text-align:center;}
+    .card{
+      position:relative; overflow:visible; border-radius:16px; padding:3rem; background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,255,0.96));
+      box-shadow: 0 12px 40px rgba(2,6,23,0.6); transform: translateY(-10px);
+    }
+    .badge{display:inline-flex; align-items:center; gap:0.6rem; background:linear-gradient(90deg,#06b6d4,#60a5fa); color:white; padding:0.5rem 0.75rem; border-radius:999px; font-weight:600; font-size:0.95rem;}
+    h1{font-size:2.1rem; margin:0.6rem 0 0.25rem; color:#0b1220}
+    p.lead{color:var(--muted); margin:0 0 1.25rem}
+    .row{display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; align-items:center}
+    .status{background:#f8fafc;padding:1rem 1.25rem;border-radius:12px;min-width:240px;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+    .status h2{margin:0;font-size:1.1rem}
+    .ok{display:inline-block;margin-top:0.5rem;padding:0.35rem 0.6rem;border-radius:999px;background:linear-gradient(90deg,#34d399,#10b981);color:white;font-weight:700}
+    .graphic{width:160px;height:160px;border-radius:50%;background:radial-gradient(circle at 30% 20%, #fff6, transparent 30%), linear-gradient(135deg,#60a5fa,#0ea5a4);display:inline-grid;place-items:center;color:white;font-size:3rem;font-weight:700;box-shadow:0 12px 30px rgba(14,165,164,0.18)}
+    footer{margin-top:1.25rem;color:var(--muted);font-size:0.9rem}
+    code{background:#0b1220;color:#f8fafc;padding:0.15rem 0.45rem;border-radius:6px;font-weight:600}
+    /* floating shapes */
+    .floaty{position:absolute;border-radius:999px;opacity:0.12;filter:blur(14px);}
+    .f1{width:160px;height:160px;right:-40px;top:-40px;background:#60a5fa}
+    .f2{width:120px;height:120px;left:-40px;bottom:-40px;background:#06b6d4}
+    @media (max-width:640px){
+      .card{padding:1.5rem}
+      .graphic{width:120px;height:120px;font-size:2.25rem}
+      h1{font-size:1.6rem}
+    }
+    /* small entrance */
+    .card{animation:pop .6s ease both}
+    @keyframes pop{from{opacity:0;transform:translateY(8px) scale(.995)}to{opacity:1;transform:translateY(0) scale(1)}}
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="card">
+      <div class="floaty f1" aria-hidden></div>
+      <div class="floaty f2" aria-hidden></div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap">
+        <div style="text-align:left">
+          <div class="badge">✅ Live Preview</div>
+          <h1>Project-1 S3 Static Site</h1>
+          <p class="lead">This friendly page confirms your static site files were deployed correctly to the hosting backend.</p>
+        </div>
+        <div style="text-align:center">
+          <div class="graphic">☁️</div>
+        </div>
+      </div>
+
+      <div style="margin-top:1.25rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
+        <div class="status">
+          <h2>Bucket Upload</h2>
+          <div class="ok">Files present</div>
+          <p style="margin:0.6rem 0 0;color:var(--muted)">Your `index.html` and assets should be in the S3 bucket.</p>
+        </div>
+        <div class="status">
+          <h2>Delivery</h2>
+          <div class="ok">CloudFront OK</div>
+          <p style="margin:0.6rem 0 0;color:var(--muted)">CDN will serve the file globally once invalidation completes.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem;display:flex;justify-content:center;gap:0.75rem">
+        <a href="features.html" class="badge" style="padding:0.7rem 1rem; text-decoration:none;">Learn why Terraform + S3 + CloudFront</a>
+        <a href="features.html" class="badge" style="padding:0.7rem 0.85rem; background:linear-gradient(90deg,#f59e0b,#f97316);">Read Features</a>
+      </div>
+
+      <footer>Tip: open this page from your hosted domain to confirm the full pipeline.</footer>
+    </div>
+  </div>
+</body>
+</html>

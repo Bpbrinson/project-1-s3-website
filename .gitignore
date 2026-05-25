@@ -1,0 +1,41 @@
+# Terraform files
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.*
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform variables with secrets (if you use auto-loaded .tfvars)
+*.tfvars
+*.tfvars.json
+!example.tfvars
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.env
+.env.local
+
+# OS
+Thumbs.db
+.DS_Store
+
+# AWS credentials and config (if ever created locally)
+.aws/
+aws_credentials
+
+# Python cache (for local HTTP server testing)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
