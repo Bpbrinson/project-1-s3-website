@@ -106,3 +106,25 @@ resource "aws_route53_record" "site_alias" {
     evaluate_target_health = false
   }
 }
+
+#######################################################
+# CloudFront invalidation when website files change
+#######################################################
+
+# This null_resource triggers a local AWS CLI call to create an invalidation
+# whenever the uploaded website objects change (based on etags). It only
+# runs when `upload_files` is enabled in the S3 module.
+resource "null_resource" "cloudfront_invalidation" {
+  count = var.upload_files ? 1 : 0
+
+  triggers = {
+    object_etags = join(",", module.s3_static_site.website_object_etags)
+    distribution  = module.cloudfront_static_site.distribution_id
+  }
+
+  provisioner "local-exec" {
+    command = "aws cloudfront create-invalidation --distribution-id ${module.cloudfront_static_site.distribution_id} --paths '/*'"
+  }
+
+  depends_on = [module.cloudfront_static_site]
+}
